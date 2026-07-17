@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain Trip</title>
+<style>
+  :root {
+    --terracotta: #C1440E;
+    --terracotta-dark: #9c3609;
+    --olive: #6B7A3A;
+    --cream: #FBF3E7;
+    --navy: #22303C;
+    --gold: #D9A441;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+  }
+  header {
+    text-align: center;
+    padding: 48px 20px 32px;
+    background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
+    color: #fff;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    letter-spacing: 0.5px;
+  }
+  header p {
+    margin: 8px 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  h2.section {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--terracotta-dark);
+    border-bottom: 2px solid var(--terracotta-dark);
+    padding-bottom: 6px;
+    margin: 40px 0 18px;
+  }
+  h2.section:first-of-type {
+    margin-top: 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(34,48,60,0.08);
+    border: 1px solid #eee0cc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(34,48,60,0.14);
+  }
+  .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: #fff;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .name {
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin: 0 0 4px;
+    line-height: 1.25;
+  }
+  .city {
+    font-size: 0.8rem;
+    color: var(--terracotta-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+  }
+  .note {
+    font-size: 0.76rem;
+    color: #7a6a55;
+    font-style: italic;
+    margin: 6px 0 10px;
+    line-height: 1.3;
+  }
+  .note.skip {
+    color: var(--terracotta-dark);
+    font-style: normal;
+    font-weight: 600;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: auto;
+  }
+  .links a {
+    font-size: 0.78rem;
+    text-decoration: none;
+    color: #fff;
+    background: var(--navy);
+    padding: 5px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .links a:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.8rem;
+    color: #8a7a63;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Spain Trip</h1>
+  <p>Restaurant &amp; food list</p>
+</header>
+
+<main>
+
+  <h2 class="section">Bilbao</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🍖</div>
+      <div class="name">Aitaren Boulevard</div>
+      <div class="city">Bilbao</div>
+      <div class="note">Amazing experience</div>
+      <div class="links">
+        <a href="https://www.aitaren.es/" target="_blank">Website</a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section">Near Bilbao</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🥩</div>
+      <div class="name">Gozkoetxe Jatetxea</div>
+      <div class="city">Loiu (near airport)</div>
+      <div class="note">Perfection — has a play area for kids</div>
+      <div class="links">
+        <a href="https://gozkoetxe.com/" target="_blank">Website</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🐟</div>
+      <div class="name">Restaurante Portuondo</div>
+      <div class="city">Mundaka</div>
+      <div class="note">Looks so good — wanted to, but no reservations available</div>
+      <div class="links">
+        <a href="https://www.restauranteportuondo.com/reserva-online.html" target="_blank">Reserve</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔥</div>
+      <div class="name">Asador Etxebarri</div>
+      <div class="city">Axpe, Atxondo</div>
+      <div class="note">Really wanted to go — need to book months ahead</div>
+      <div class="links">
+        <a href="https://www.asadoretxebarri.com/" target="_blank">Website</a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section">Getaria</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🐡</div>
+      <div class="name">Restaurante Elkano</div>
+      <div class="city">Getaria</div>
+      <div class="note">Famous grilled turbot — book 3+ weeks ahead</div>
+      <div class="links">
+        <a href="https://www.restauranteelkano.com/reservas/" target="_blank">Reserve</a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section">León</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🐂</div>
+      <div class="name">Bodega El Capricho</div>
+      <div class="city">Jiménez de Jamuz</div>
+      <div class="note skip">Too far — probably skipping</div>
+      <div class="links">
+        <a href="https://www.bodegaelcapricho.com/" target="_blank">Website</a>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  Spain Trip — 6 spots
+</footer>
+
+</body>
+</html>
