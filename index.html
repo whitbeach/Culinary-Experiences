@@ -14,6 +14,7 @@
     --cream: #faf7f2;
     --bg: #ffffff;
     --rule: #111827;
+    --garnet: #6d0f22;
   }
   * { box-sizing: border-box; }
   body {
@@ -23,7 +24,7 @@
     font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   }
   header {
-    background: var(--cream);
+    background: var(--garnet);
     padding: 28px 40px;
   }
   header .logo {
@@ -33,17 +34,50 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin: 0;
+    color: #ffffff;
   }
   header .sub {
     margin: 6px 0 0;
     font-size: 0.85rem;
-    color: var(--muted);
+    color: rgba(255,255,255,0.75);
     letter-spacing: 0.3px;
+  }
+  nav.tabs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 32px;
+    border-bottom: 1px solid var(--ink);
+  }
+  nav.tabs button {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 22px 0 16px;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  nav.tabs button.active {
+    color: var(--ink);
+    border-bottom: 2px solid var(--garnet);
   }
   main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 40px 80px;
+  }
+  .tabpanel {
+    display: none;
+  }
+  .tabpanel.active {
+    display: block;
   }
   h2.section {
     font-family: 'Fraunces', serif;
@@ -56,7 +90,7 @@
     padding-bottom: 10px;
     border-bottom: 1px solid var(--ink);
   }
-  h2.section:first-of-type {
+  .tabpanel h2.section:first-of-type {
     margin-top: 0;
   }
   .grid {
@@ -171,115 +205,133 @@
   <p class="sub">Restaurant &amp; food list</p>
 </header>
 
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="visited">Visited</button>
+  <button class="tab-btn" data-tab="wishlist">Wish List</button>
+</nav>
+
 <main>
 
-  <h2 class="section">Bilbao</h2>
-  <div class="grid">
+  <div class="tabpanel active" id="visited">
 
-    <div class="card">
-      <div class="thumb"><img src="https://aitaren.es/wp-content/uploads/2024/08/chuleta_aitaren_1920x1281.jpg" alt="Aitaren Boulevard"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(1)</span>
-          <h3 class="rname">Aitaren Boulevard</h3>
+    <h2 class="section">Bilbao</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="https://aitaren.es/wp-content/uploads/2024/08/chuleta_aitaren_1920x1281.jpg" alt="Aitaren Boulevard"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(1)</span>
+            <h3 class="rname">Aitaren Boulevard</h3>
+          </div>
+          <span class="rcity">Bilbao</span>
         </div>
-        <span class="rcity">Bilbao</span>
+        <div class="note">Amazing experience</div>
+        <div class="visit"><a href="https://www.aitaren.es/" target="_blank">Website</a></div>
       </div>
-      <div class="note">Amazing experience</div>
-      <div class="visit"><a href="https://www.aitaren.es/" target="_blank">Website</a></div>
+
+    </div>
+
+    <h2 class="section">Near Bilbao</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-17%20162622.png" alt="Gozkoetxe Jatetxea"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(2)</span>
+            <h3 class="rname">Gozkoetxe Jatetxea</h3>
+          </div>
+          <span class="rcity">Loiu</span>
+        </div>
+        <div class="note">Perfection — has a play area for kids</div>
+        <div class="visit"><a href="https://gozkoetxe.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-19%20115153.png" alt="Boroa Jatetxea"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(5)</span>
+            <h3 class="rname">Boroa Jatetxea</h3>
+          </div>
+          <span class="rcity">Amorebieta-Etxano</span>
+        </div>
+        <div class="note">Food was insane — bit stuffy (white cloth vibes). For kids it was manageable noise-wise, since at first seating there's a few kids/elderly.</div>
+        <div class="visit"><a href="https://www.boroa.com/en/" target="_blank">Website</a><a href="https://www.boroa.com/en/reservation/" target="_blank">Reserve</a></div>
+      </div>
+
     </div>
 
   </div>
 
-  <h2 class="section">Near Bilbao</h2>
-  <div class="grid">
+  <div class="tabpanel" id="wishlist">
 
-    <div class="card">
-      <div class="thumb"><img src="Screenshot%202026-07-17%20162622.png" alt="Gozkoetxe Jatetxea"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(2)</span>
-          <h3 class="rname">Gozkoetxe Jatetxea</h3>
+    <h2 class="section">Near Bilbao</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="https://www.restauranteportuondo.com/images/paginas/e27884a274103b14fbf7b2cdd6d98493.jpeg" alt="Restaurante Portuondo"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(3)</span>
+            <h3 class="rname">Restaurante Portuondo</h3>
+          </div>
+          <span class="rcity">Mundaka</span>
         </div>
-        <span class="rcity">Loiu</span>
+        <div class="note">Looks so good — wanted to, but no reservations available</div>
+        <div class="visit"><a href="https://www.restauranteportuondo.com/reserva-online.html" target="_blank">Reserve</a></div>
       </div>
-      <div class="note">Perfection — has a play area for kids</div>
-      <div class="visit"><a href="https://gozkoetxe.com/" target="_blank">Website</a></div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Entrance_of_Asador_Etxebarri_%2818342772348%29.jpg" alt="Asador Etxebarri"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(4)</span>
+            <h3 class="rname">Asador Etxebarri</h3>
+          </div>
+          <span class="rcity">Axpe, Atxondo</span>
+        </div>
+        <div class="note">Really wanted to go — need to book months ahead</div>
+        <div class="visit"><a href="https://www.asadoretxebarri.com/" target="_blank">Website</a></div>
+      </div>
+
     </div>
 
-    <div class="card">
-      <div class="thumb"><img src="https://www.restauranteportuondo.com/images/paginas/e27884a274103b14fbf7b2cdd6d98493.jpeg" alt="Restaurante Portuondo"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(3)</span>
-          <h3 class="rname">Restaurante Portuondo</h3>
+    <h2 class="section">Getaria</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Getaria%2C_Harbour_and_Mount_San_Anton.jpg" alt="Getaria harbour"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(6)</span>
+            <h3 class="rname">Restaurante Elkano</h3>
+          </div>
+          <span class="rcity">Getaria</span>
         </div>
-        <span class="rcity">Mundaka</span>
+        <div class="note">Famous grilled turbot — book 3+ weeks ahead</div>
+        <div class="visit"><a href="https://www.restauranteelkano.com/reservas/" target="_blank">Reserve</a></div>
       </div>
-      <div class="note">Looks so good — wanted to, but no reservations available</div>
-      <div class="visit"><a href="https://www.restauranteportuondo.com/reserva-online.html" target="_blank">Reserve</a></div>
+
     </div>
 
-    <div class="card">
-      <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Entrance_of_Asador_Etxebarri_%2818342772348%29.jpg" alt="Asador Etxebarri"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(4)</span>
-          <h3 class="rname">Asador Etxebarri</h3>
+    <h2 class="section">León</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-17%20162820.png" alt="Bodega El Capricho"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(7)</span>
+            <h3 class="rname">Bodega El Capricho</h3>
+          </div>
+          <span class="rcity">Jiménez de Jamuz</span>
         </div>
-        <span class="rcity">Axpe, Atxondo</span>
+        <div class="note skip">Too far — probably skipping</div>
+        <div class="visit"><a href="https://www.bodegaelcapricho.com/" target="_blank">Website</a></div>
       </div>
-      <div class="note">Really wanted to go — need to book months ahead</div>
-      <div class="visit"><a href="https://www.asadoretxebarri.com/" target="_blank">Website</a></div>
-    </div>
 
-    <div class="card">
-      <div class="thumb"><img src="Screenshot%202026-07-19%20115153.png" alt="Boroa Jatetxea"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(5)</span>
-          <h3 class="rname">Boroa Jatetxea</h3>
-        </div>
-        <span class="rcity">Amorebieta-Etxano</span>
-      </div>
-      <div class="note">Food was insane — bit stuffy (white cloth vibes). For kids it was manageable noise-wise, since at first seating there's a few kids/elderly.</div>
-      <div class="visit"><a href="https://www.boroa.com/en/" target="_blank">Website</a><a href="https://www.boroa.com/en/reservation/" target="_blank">Reserve</a></div>
-    </div>
-
-  </div>
-
-  <h2 class="section">Getaria</h2>
-  <div class="grid">
-
-    <div class="card">
-      <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Getaria%2C_Harbour_and_Mount_San_Anton.jpg" alt="Getaria harbour"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(6)</span>
-          <h3 class="rname">Restaurante Elkano</h3>
-        </div>
-        <span class="rcity">Getaria</span>
-      </div>
-      <div class="note">Famous grilled turbot — book 3+ weeks ahead</div>
-      <div class="visit"><a href="https://www.restauranteelkano.com/reservas/" target="_blank">Reserve</a></div>
-    </div>
-
-  </div>
-
-  <h2 class="section">León</h2>
-  <div class="grid">
-
-    <div class="card">
-      <div class="thumb"><img src="Screenshot%202026-07-17%20162820.png" alt="Bodega El Capricho"></div>
-      <div class="meta">
-        <div class="meta-left">
-          <span class="idx">(7)</span>
-          <h3 class="rname">Bodega El Capricho</h3>
-        </div>
-        <span class="rcity">Jiménez de Jamuz</span>
-      </div>
-      <div class="note skip">Too far — probably skipping</div>
-      <div class="visit"><a href="https://www.bodegaelcapricho.com/" target="_blank">Website</a></div>
     </div>
 
   </div>
@@ -289,6 +341,17 @@
 <footer>
   Spain Trip — 7 spots
 </footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tabpanel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
 
 </body>
 </html>
