@@ -31,10 +31,15 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+  header .title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
   header .logo {
     font-family: 'Fraunces', serif;
     font-weight: 400;
-    font-size: 2.1rem;
+    font-size: 2.3rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin: 0;
@@ -42,8 +47,8 @@
   }
   header .sub {
     font-family: 'Fraunces', serif;
-    margin: 6px 0 0;
-    font-size: 0.85rem;
+    margin: 0;
+    font-size: 0.7rem;
     color: rgba(255,255,255,0.75);
     letter-spacing: 0.3px;
   }
@@ -191,8 +196,10 @@
 
 <header>
   <div class="header-inner">
-    <p class="logo">Spain Trip</p>
-    <p class="sub">Restaurant &amp; food list</p>
+    <div class="title-row">
+      <p class="logo">Spain Trip</p>
+      <p class="sub">Restaurant &amp; food list</p>
+    </div>
     <nav class="tabs">
       <button class="tab-btn active" data-tab="visited">Visited</button>
       <button class="tab-btn" data-tab="wishlist">Wish List</button>
