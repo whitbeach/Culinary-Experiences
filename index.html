@@ -39,41 +39,53 @@
     margin: 0;
     color: var(--garnet);
   }
+  nav.tabs-band {
+    background: var(--garnet);
+    padding: 20px 40px;
+  }
+  nav.tabs-band .tabs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+  }
+  nav.tabs-band a.tab-link {
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+  }
+  nav.tabs-band a.tab-link:hover {
+    color: #ffffff;
+  }
+  nav.tabs-band .tab-idx {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+  }
   main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 8px 40px 80px;
+    padding: 40px 40px 80px;
   }
   .art-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    margin-bottom: 48px;
   }
   .art-row img {
     width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
     display: block;
-    box-shadow: 0 2px 10px rgba(17,24,39,0.15);
-  }
-  .cta {
-    text-align: center;
-  }
-  .cta a {
-    font-family: 'Fraunces', serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #ffffff;
-    background: var(--garnet);
-    text-decoration: none;
-    padding: 14px 32px;
-    display: inline-block;
-  }
-  .cta a:hover {
-    background: #52091a;
+    background: #ffffff;
   }
   footer {
     text-align: center;
@@ -93,16 +105,20 @@
   </div>
 </header>
 
+<nav class="tabs-band">
+  <div class="tabs-inner">
+    <a class="tab-link" href="list.html#visited"><span class="tab-idx">(4)</span>Visited</a>
+    <a class="tab-link" href="list.html#wishlist"><span class="tab-idx">(4)</span>Wish List</a>
+    <a class="tab-link" href="list.html#hotels"><span class="tab-idx">(14)</span>Hotels</a>
+  </div>
+</nav>
+
 <main>
 
   <div class="art-row">
     <img src="Untitled_Artwork.JPG" alt="Untitled artwork">
     <img src="Untitled_Artwork%201.JPG" alt="Untitled artwork 1">
     <img src="Untitled_Artwork%202.JPG" alt="Untitled artwork 2">
-  </div>
-
-  <div class="cta">
-    <a href="list.html">Explore Restaurants &amp; Hotels</a>
   </div>
 
 </main>
