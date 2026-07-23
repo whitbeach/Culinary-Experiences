@@ -75,6 +75,17 @@
     font-weight: 400;
     color: rgba(255,255,255,0.5);
   }
+  .section-band {
+    background: var(--garnet);
+    color: #ffffff;
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 14px 20px;
+    margin: 44px 0 32px;
+  }
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -201,15 +212,14 @@
 
 <nav class="tabs-band">
   <div class="tabs-inner">
-    <button class="tab-btn active" data-tab="visited"><span class="tab-idx">(4)</span>Visited</button>
-    <button class="tab-btn" data-tab="wishlist"><span class="tab-idx">(4)</span>Wish List</button>
+    <button class="tab-btn active" data-tab="restaurants"><span class="tab-idx">(8)</span>Restaurants</button>
     <button class="tab-btn" data-tab="hotels"><span class="tab-idx">(14)</span>Hotels</button>
   </div>
 </nav>
 
 <main>
 
-  <div class="tabpanel active" id="visited">
+  <div class="tabpanel active" id="restaurants">
 
     <div class="grid">
 
@@ -267,9 +277,7 @@
 
     </div>
 
-  </div>
-
-  <div class="tabpanel" id="wishlist">
+    <div class="section-band">Wish List</div>
 
     <div class="grid">
 
