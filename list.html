@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culinary & Cobijo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111827;
+    --muted: #6b7280;
+    --cream: #faf7f2;
+    --bg: #ffffff;
+    --rule: #111827;
+    --garnet: #6d0f22;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+  header.top-bar {
+    background: #ffffff;
+    padding: 48px 40px 36px;
+  }
+  header.top-bar .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  header.top-bar .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-optical-sizing: none;
+    font-variation-settings: 'opsz' 9;
+    font-size: 2.6rem;
+    letter-spacing: 0.3px;
+    margin: 0;
+    color: var(--garnet);
+  }
+  nav.tabs-band {
+    background: var(--garnet);
+    padding: 20px 40px;
+  }
+  nav.tabs-band .tabs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+  }
+  nav.tabs-band .tab-btn {
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: rgba(255,255,255,0.65);
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+  }
+  nav.tabs-band .tab-btn.active {
+    color: #ffffff;
+  }
+  nav.tabs-band .tab-idx {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+  }
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+  .tabpanel {
+    display: none;
+  }
+  .tabpanel.active {
+    display: block;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 32px 28px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(17,24,39,0.25);
+    margin-bottom: 14px;
+    background: #e5e0d8;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .card:hover .thumb img {
+    transform: scale(1.04);
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    border-bottom: 1px solid #d8d2c6;
+    padding-bottom: 10px;
+  }
+  .meta-left {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .idx {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .rname {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.15rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+  .rcity {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    color: var(--ink);
+  }
+  .note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin: 10px 0 0;
+    line-height: 1.4;
+  }
+  .note.skip {
+    color: #9c3609;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .visit {
+    margin-top: 12px;
+  }
+  .visit a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+  }
+  .visit a:hover {
+    color: #9c3609;
+    border-color: #9c3609;
+  }
+  .visit a + a {
+    margin-left: 16px;
+  }
+  footer {
+    text-align: center;
+    padding: 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid #e5e0d8;
+  }
+</style>
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="header-inner">
+    <p class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Culinary &amp; Cobijo</a></p>
+  </div>
+</header>
+
+<nav class="tabs-band">
+  <div class="tabs-inner">
+    <button class="tab-btn active" data-tab="visited"><span class="tab-idx">(4)</span>Visited</button>
+    <button class="tab-btn" data-tab="wishlist"><span class="tab-idx">(4)</span>Wish List</button>
+    <button class="tab-btn" data-tab="hotels"><span class="tab-idx">(14)</span>Hotels</button>
+  </div>
+</nav>
+
+<main>
+
+  <div class="tabpanel active" id="visited">
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="https://aitaren.es/wp-content/uploads/2024/08/chuleta_aitaren_1920x1281.jpg" alt="Aitaren Boulevard"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(1)</span>
+            <h3 class="rname">Aitaren Boulevard</h3>
+          </div>
+          <span class="rcity">Bilbao</span>
+        </div>
+        <div class="note">Amazing experience</div>
+        <div class="visit"><a href="https://www.aitaren.es/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-17%20162622.png" alt="Gozkoetxe Jatetxea"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(2)</span>
+            <h3 class="rname">Gozkoetxe Jatetxea</h3>
+          </div>
+          <span class="rcity">Loiu</span>
+        </div>
+        <div class="note">Perfection — has a play area for kids</div>
+        <div class="visit"><a href="https://gozkoetxe.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-19%20115153.png" alt="Boroa Jatetxea"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(5)</span>
+            <h3 class="rname">Boroa Jatetxea</h3>
+          </div>
+          <span class="rcity">Amorebieta-Etxano</span>
+        </div>
+        <div class="note">Food was insane — bit stuffy (white cloth vibes). For kids it was manageable noise-wise, since at first seating there's a few kids/elderly.</div>
+        <div class="visit"><a href="https://www.boroa.com/en/" target="_blank">Website</a><a href="https://www.boroa.com/en/reservation/" target="_blank">Reserve</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-19%20122251.png" alt="Dos Pebrots"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(8)</span>
+            <h3 class="rname">Dos Pebrots</h3>
+          </div>
+          <span class="rcity">Barcelona</span>
+        </div>
+        <div class="note">Mediterranean tasting menu from elBulli alumni — semi-formal, reservations required</div>
+        <div class="visit"><a href="https://www.dospebrots.com/en/" target="_blank">Website</a><a href="https://bookings.dospebrots.com/dospebrots/bookings_online/index.php?page=&lang=en" target="_blank">Reserve</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="tabpanel" id="wishlist">
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="https://www.restauranteportuondo.com/images/paginas/e27884a274103b14fbf7b2cdd6d98493.jpeg" alt="Restaurante Portuondo"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(3)</span>
+            <h3 class="rname">Restaurante Portuondo</h3>
+          </div>
+          <span class="rcity">Mundaka</span>
+        </div>
+        <div class="note">Looks so good — wanted to, but no reservations available</div>
+        <div class="visit"><a href="https://www.restauranteportuondo.com/reserva-online.html" target="_blank">Reserve</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Entrance_of_Asador_Etxebarri_%2818342772348%29.jpg" alt="Asador Etxebarri"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(4)</span>
+            <h3 class="rname">Asador Etxebarri</h3>
+          </div>
+          <span class="rcity">Axpe, Atxondo</span>
+        </div>
+        <div class="note">Really wanted to go — need to book months ahead</div>
+        <div class="visit"><a href="https://www.asadoretxebarri.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Getaria%2C_Harbour_and_Mount_San_Anton.jpg" alt="Getaria harbour"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(6)</span>
+            <h3 class="rname">Restaurante Elkano</h3>
+          </div>
+          <span class="rcity">Getaria</span>
+        </div>
+        <div class="note">Famous grilled turbot — book 3+ weeks ahead</div>
+        <div class="visit"><a href="https://www.restauranteelkano.com/reservas/" target="_blank">Reserve</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-17%20162820.png" alt="Bodega El Capricho"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(7)</span>
+            <h3 class="rname">Bodega El Capricho</h3>
+          </div>
+          <span class="rcity">Jiménez de Jamuz</span>
+        </div>
+        <div class="note skip">Too far — probably skipping</div>
+        <div class="visit"><a href="https://www.bodegaelcapricho.com/" target="_blank">Website</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="tabpanel" id="hotels">
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20114836.png" alt="Nobu Hotel Palo Alto"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(9)</span>
+            <h3 class="rname">Nobu Hotel</h3>
+          </div>
+          <span class="rcity">Palo Alto</span>
+        </div>
+        <div class="note">Nobu-branded hotel — sushi by Chef Nobu Matsuhisa, Ryokan suites</div>
+        <div class="visit"><a href="https://www.nobuhotels.com/palo-alto/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20120003.png" alt="The Bowery Hotel"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(10)</span>
+            <h3 class="rname">The Bowery Hotel</h3>
+          </div>
+          <span class="rcity">New York</span>
+        </div>
+        <div class="note">Boutique hotel on the Lower East Side</div>
+        <div class="visit"><a href="https://theboweryhotel.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20112751.png" alt="The Ludlow Hotel"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(11)</span>
+            <h3 class="rname">The Ludlow Hotel</h3>
+          </div>
+          <span class="rcity">New York</span>
+        </div>
+        <div class="note">Boutique hotel on the Lower East Side — Dirty French restaurant</div>
+        <div class="visit"><a href="https://ludlowhotel.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20112831.png" alt="URSO Hotel &amp; Spa"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(12)</span>
+            <h3 class="rname">URSO Hotel &amp; Spa</h3>
+          </div>
+          <span class="rcity">Madrid</span>
+        </div>
+        <div class="note">5-star boutique hotel in a historic 20th-century mansion, on-site spa</div>
+        <div class="visit"><a href="https://hotelurso.com/en/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20113114.png" alt="Nômade Temple"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(13)</span>
+            <h3 class="rname">Nômade Temple</h3>
+          </div>
+          <span class="rcity">Madrid</span>
+        </div>
+        <div class="note">Historic Hotel de las Letras reimagined — rooftop pool, GÖN spa, nightlife</div>
+        <div class="visit"><a href="https://www.nomadetemple.com/madrid" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20113934.png" alt="The London EDITION"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(14)</span>
+            <h3 class="rname">The London EDITION</h3>
+          </div>
+          <span class="rcity">London</span>
+        </div>
+        <div class="note">5-star boutique hotel in Fitzrovia — Berners Tavern by Jason Atherton</div>
+        <div class="visit"><a href="https://www.editionhotels.com/london/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://themandrake.com/wp-content/uploads/2025/02/JBP_TMH_Spa_Low_020-1.jpg" alt="The Mandrake"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(15)</span>
+            <h3 class="rname">The Mandrake</h3>
+          </div>
+          <span class="rcity">London</span>
+        </div>
+        <div class="note">Luxury lifestyle boutique hotel in Fitzrovia — DAMU Spa, YOPO restaurant</div>
+        <div class="visit"><a href="https://themandrake.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://lucidcm.imgix.net/95182/Hotel/61073/Image/15hqPMyZ0OOEb0n9IMkg_Arima_Hotel_Facade.jpg.jpg?h=1173&w=660" alt="ARIMA Hotel & Spa"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(16)</span>
+            <h3 class="rname">ARIMA Hotel &amp; Spa</h3>
+          </div>
+          <span class="rcity">San Sebastián</span>
+        </div>
+        <div class="note">Eco-friendly boutique hotel in Miramón Forest — rooftop pool, spa</div>
+        <div class="visit"><a href="https://slh.com/hotels/arima-hotel-and-spa" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://images.cataloniahotels.com/styles/talla_uno/cloud-storage/images/2025-08/hero-verano-3.jpg.webp" alt="Catalonia Gran Vía Bilbao"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(17)</span>
+            <h3 class="rname">Catalonia Gran Vía</h3>
+          </div>
+          <span class="rcity">Bilbao</span>
+        </div>
+        <div class="note">Contemporary hotel near the Guggenheim — rooftop saltwater pool, spa</div>
+        <div class="visit"><a href="https://www.cataloniahotels.com/en/hotel/catalonia-gran-via-bilbao" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20120239.png" alt="DAS EDELWEISS Salzburg Mountain Resort"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(18)</span>
+            <h3 class="rname">DAS EDELWEISS</h3>
+          </div>
+          <span class="rcity">Grossarl</span>
+        </div>
+        <div class="note">5-star alpine resort — 7,000 m² Mountain Spa, family-run</div>
+        <div class="visit"><a href="https://www.edelweiss-grossarl.com/en/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20115414.png" alt="The Standard, Miami Beach"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(19)</span>
+            <h3 class="rname">The Standard</h3>
+          </div>
+          <span class="rcity">Miami Beach</span>
+        </div>
+        <div class="note">Waterfront boutique hotel &amp; spa on Biscayne Bay</div>
+        <div class="visit"><a href="https://www.standardhotels.com/miami/properties/miami-beach" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20112613.png" alt="Le Beaumanoir"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(20)</span>
+            <h3 class="rname">Le Beaumanoir</h3>
+          </div>
+          <span class="rcity">Biarritz</span>
+        </div>
+        <div class="note">Small luxury boutique hotel</div>
+        <div class="visit"><a href="http://www.lebeaumanoir.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="Screenshot%202026-07-23%20112450.png" alt="The Whitney Hotel"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(21)</span>
+            <h3 class="rname">The Whitney Hotel</h3>
+          </div>
+          <span class="rcity">Boston</span>
+        </div>
+        <div class="note">Boutique hotel in Beacon Hill — 2 MICHELIN keys, AAA Four Diamond</div>
+        <div class="visit"><a href="https://www.whitneyhotelboston.com/" target="_blank">Website</a></div>
+      </div>
+
+      <div class="card">
+        <div class="thumb"><img src="https://cache.marriott.com/content/dam/marriott-renditions/BOSLC/boslc-exterior-0164-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*" alt="The Liberty Hotel"></div>
+        <div class="meta">
+          <div class="meta-left">
+            <span class="idx">(22)</span>
+            <h3 class="rname">The Liberty Hotel</h3>
+          </div>
+          <span class="rcity">Boston</span>
+        </div>
+        <div class="note">Historic landmark hotel (former Charles Street Jail) — 5 restaurants &amp; bars</div>
+        <div class="visit"><a href="https://www.libertyhotel.com/" target="_blank">Website</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  Culinary &amp; Cobijo — 8 restaurants · 14 hotels
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tabpanel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
