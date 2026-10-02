@@ -577,6 +577,28 @@
     activateTab(initialTab);
   }
 </script>
-
+<script>
+  (function () {
+    var totals = [];
+    document.querySelectorAll('.tab-btn').forEach(function (btn) {
+      var panel = document.getElementById(btn.dataset.tab);
+      if (!panel) return;
+      var cards = panel.querySelectorAll('.card');
+      cards.forEach(function (card, i) {
+        var idx = card.querySelector('.idx');
+        if (idx) idx.textContent = '(' + (i + 1) + ')';
+      });
+      var count = btn.querySelector('.tab-idx');
+      if (count) count.textContent = '(' + cards.length + ')';
+      var name = btn.textContent.replace(/\(\d+\)/, '').trim().toLowerCase();
+      totals.push(cards.length + ' ' + name);
+    });
+    var footer = document.querySelector('footer');
+    var logo = document.querySelector('.logo');
+    if (footer && logo) {
+      footer.textContent = logo.textContent.trim() + ' — ' + totals.join(' · ');
+    }
+  })();
+</script>
 </body>
 </html>
