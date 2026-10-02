@@ -131,6 +131,27 @@
 <footer>
   Culinary &amp; Cobijo
 </footer>
-
+<script>
+  fetch('list.html')
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var totals = [];
+      doc.querySelectorAll('.tab-btn').forEach(function (btn) {
+        var panel = doc.getElementById(btn.dataset.tab);
+        if (!panel) return;
+        var n = panel.querySelectorAll('.card').length;
+        var name = btn.textContent.replace(/\(\d+\)/, '').trim().toLowerCase();
+        totals.push(n + ' ' + name);
+        var link = document.querySelector('.tab-link[href$="#' + btn.dataset.tab + '"] .tab-idx');
+        if (link) link.textContent = '(' + n + ')';
+      });
+      var footer = document.querySelector('footer');
+      var logo = document.querySelector('.logo');
+      if (footer && logo) {
+        footer.textContent = logo.textContent.trim() + ' — ' + totals.join(' · ');
+      }
+    });
+</script>
 </body>
 </html>
